@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="loading" *ngIf="connector.dataStore.searchLoading">
+    <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+      <path fill="#777" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50" transform="rotate(197.546 50 50)">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
+      </path>
+    </svg>
+  </div>
+
+  <div class="options" *ngIf="!connector.dataStore.searchLoading">
+    <div class="right">
+      <label for="type">
+        نوع
+      </label>
+      <select id="type" (change)="change()" 
+      [(ngModel)]="connector.dataStore.searchOptions.type">
+        <option value="">همه</option>
+        <option *ngFor="let item of connector.dataStore.wordOptions" 
+        [value]="item.value">{{ item.label }}</option>
+      </select>
+    </div>
+    <div class="left">
+      <label for="order">
+        ترتیب
+      </label>
+      <select id="order" (change)="change()" 
+      [(ngModel)]="connector.dataStore.searchOptions.order">
+        <option value="name">الفبا</option>
+        <option value="time">زمان</option>
+        <option value="type">نوع</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="seperator" *ngIf="!connector.dataStore.searchLoading"></div>
+
+  <div class="body" *ngIf="!connector.dataStore.searchLoading">
+    <div *ngFor="let item of connector.dataStore.searchResult">
+      <div class="text">{{ item.text }}</div>
+      <div class="phonetic">{{ item.phonetic }}</div>
+      <div class="type">{{ connector.dataStore.wordOptionsLabel[item.type].label }}</div>
+    </div>
+    <button *ngIf="!isLoading && connector.dataStore.searchResult.length > 0" (click)="more()">بیشتر</button>
+    <svg *ngIf="isLoading" version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+      <path fill="#777" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50" transform="rotate(197.546 50 50)">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
+      </path>
+    </svg>
+  </div>
+  
+  
+
+</div>

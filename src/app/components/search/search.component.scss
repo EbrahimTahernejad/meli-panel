@@ -1,0 +1,156 @@
+.container {
+
+    width: 100%;
+    text-align: center;
+
+    .loading {
+
+        width: 100%;
+        margin-top: 100px;
+        text-align: center;
+
+        svg {
+
+            height: 60px;
+
+        }
+
+    }
+
+    .options {
+
+        width: 100%;
+        text-align: center;
+        direction: rtl;
+
+        > div {
+
+            width: 15rem;
+            height: 2.5rem;
+            background: #000;
+            display: inline-block;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 3px;
+
+            > * {
+
+                float: right;
+                
+            }
+
+            label {
+
+                width: 4rem;
+                font-weight: 200;
+                text-align: right;
+                box-sizing: border-box;
+                padding-right: 0.7rem;
+                font-size: 1rem;
+                height: 100%;
+                line-height: 2.5rem;
+                color: #c1c1c1;
+
+            }
+
+            select {
+
+                width: calc( 100% - 4.5rem);
+                border: none;
+                height: 2.5rem;
+                box-sizing: border-box;
+                border-radius: 0;
+                background: #fff;
+                font-size: 1rem;
+                line-height: inherit;
+                font-weight: 400;
+                color: #555555;
+
+            }
+
+        }
+        
+        > div.right {
+
+            margin: 0 0 0 23px;
+
+        }
+
+        > div.left {
+
+            margin: 0 23px 0 0;
+
+        }
+
+    }
+
+    .seperator {
+
+        width: 390px;
+        height: 1px;
+        margin: 60px auto;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+
+    }
+
+    .body {
+
+        margin-bottom: 70px;
+
+        svg {
+            width: 60px;
+        }
+
+        button {
+            font-weight: 400;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            background: #fff;
+            border: 1px solid #ececec;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        > div {
+            width: 40rem;
+            max-width: 80%;
+            height: 2.5rem;
+            display: block;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 3px;
+            margin: 0 auto 1rem auto;
+
+            > div {
+                font-size: 1rem;
+                line-height: 2.5rem;
+                float: right;
+                height: 2.5rem;
+            }
+
+            .text {
+                margin-right: 0.7rem;
+                color: #444;
+                font-weight: 400;
+            }
+
+            .phonetic {
+                margin-right: 1.2rem;
+                color: #c1c1c1;
+                font-weight: 300;
+            }
+
+            .type {
+                margin-right: 1.2rem;
+                color: #c1c1c1;
+                font-weight: 300;
+                float: left;
+                margin-left: 0.7rem;
+            }
+
+        }
+
+    }
+
+}

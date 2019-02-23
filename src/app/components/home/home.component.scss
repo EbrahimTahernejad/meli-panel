@@ -1,0 +1,52 @@
+.container {
+
+    width: 100%;
+    text-align: center;
+
+    .button-main {
+
+        background: #C9E1B1;
+        width: 350px;
+        padding: 13px 0;
+        color: #fff;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        text-decoration: none;
+
+    }
+
+    .new {
+
+        width: 80%;
+        margin: 100px auto;
+
+        .title {
+
+            text-align: right;
+            font-size: 18;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #606060;
+
+        }
+
+        .word {
+
+            display: inline-block;
+            padding: 10px 17px;
+            box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.14);
+            background: #fff;
+            border-radius: 3px;
+            margin: 0 10px 20px 10px;
+            color: #808080;
+            font-weight: 200;
+
+        }
+
+    }
+
+}

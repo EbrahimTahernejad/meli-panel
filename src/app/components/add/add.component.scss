@@ -1,0 +1,182 @@
+.container {
+
+    text-align: center;
+
+    form {
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        padding: 10px 0 0 0;
+        border-radius: 4px;
+        width: 25rem;
+        overflow: hidden;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+        background: #fff;
+        margin-top: 20px;
+
+        > * {
+            margin-top: 13px;
+        }
+
+    }
+
+    button[type=submit] {
+        background: #C9E1B1;
+        color: #fff;
+        width: 100%;
+        height: 41px;
+        padding: 10px 0;
+        font-weight: 400;
+        font-size: 0.9rem;
+        border:none;
+        position: relative;
+        cursor: pointer;
+
+        svg {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 50%;
+            height: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    }
+
+    .switch {
+
+        direction: rtl;
+
+        span {
+
+            font-weight: 100;
+            font-size: 0.8rem;
+            color: #9f9f9f;
+            width: 100px;
+            display: inline-block;
+
+        }
+
+        .anti {
+
+            text-align: left;
+
+        }
+
+        .label {
+
+            font-weight: 300;
+            text-align: right;
+
+        }
+
+        button {
+
+            width: 32px;
+            height: 18px;
+            background: #f2f2f2;
+            border: 1px solid #e2e2e2;
+            border-radius: 9px;
+            vertical-align: middle;
+            margin: 0 7px;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+
+        }
+
+        button:after {
+
+            content: '';
+            display: block;
+            height: 14px;
+            width: 14px;
+            background: #d2d2d2;
+            position: absolute;
+            border-radius: 8px;
+            right: 1px;
+            top: 1px;
+            transition: all 0.3s ease-in-out;
+
+        }
+
+    }
+
+    .switch.selected {
+        
+        button {
+
+            background: #C9E1B1;
+
+        }
+
+        button:after {
+
+            right: calc(100% - 15px);
+            background: #fff;
+
+        }
+
+    }
+
+    .text {
+        height: 2.5rem;
+        direction: rtl;
+        text-align: right;
+        width: 15rem;
+        box-sizing: border-box;
+        border: 1px solid #ececec;
+        border-radius: 4px;
+        padding: 0 10px;
+        font-size: 0.8rem;
+        font-weight: 300;
+        color: #666;
+    }
+
+    .select {
+
+        width: 15rem;
+        height: 2.5rem;
+        background: #000;
+        display: inline-block;
+        background: #fff;
+        border: 1px solid #f0f0f0;
+        border-radius: 3px;
+
+        > * {
+
+            float: right;
+            
+        }
+
+        label {
+
+            width: 4rem;
+            font-weight: 200;
+            text-align: right;
+            box-sizing: border-box;
+            padding-right: 0.7rem;
+            font-size: 1rem;
+            height: 100%;
+            line-height: 2.5rem;
+            color: #c1c1c1;
+
+        }
+
+        select {
+
+            width: calc( 100% - 4.5rem);
+            border: none;
+            height: 2.5rem;
+            box-sizing: border-box;
+            border-radius: 0;
+            background: #fff;
+            font-size: 1rem;
+            line-height: inherit;
+            font-weight: 400;
+            color: #555555;
+
+        }
+
+    }
+
+}

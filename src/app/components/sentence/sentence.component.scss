@@ -1,0 +1,48 @@
+.container {
+
+    text-align: center;
+
+    svg {
+        width: 60px;
+    }
+
+    .text {
+        height: 2.5rem;
+        direction: rtl;
+        text-align: right;
+        width: 15rem;
+        box-sizing: border-box;
+        border: 1px solid #ececec;
+        border-radius: 4px;
+        padding: 0 10px;
+        font-size: 0.8rem;
+        font-weight: 300;
+        color: #666;
+    }
+
+    .output {
+
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+        border-radius: 4px;
+        width: 25rem;
+        overflow: hidden;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+        background: #fff;
+        margin-top: 20px;
+
+        > .q {
+            font-size: 13px;
+            font-weight: 200;
+            text-align: right;
+        }
+
+        > .a {
+            margin-top: 10px;
+        }
+
+    }
+
+}

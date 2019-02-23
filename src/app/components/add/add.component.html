@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="select">
+    <label for="type">
+      نوع
+    </label>
+    <select id="type" (change)="change()" 
+    [(ngModel)]="type">
+      <option *ngFor="let item of connector.dataStore.wordOptions" 
+      [value]="item.value">{{ item.label }}</option>
+    </select>
+  </div>
+  <form (ngSubmit)="submit()">
+    <input type="text" class="text" [(ngModel)]="text" placeholder="متن" [ngModelOptions]="{standalone: true}">
+    <div class="switches">
+      <div *ngFor="let item of option.switches">
+        <div [class]="'switch' + (values[option.value][item.value] ? ' selected' : '')">
+          <span class="anti">{{ item.anti }}</span>
+          <button type="button" (click)="values[option.value][item.value] = !values[option.value][item.value]"></button>
+          <span class="label">{{ item.label }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="lists">
+      <div class="select" *ngFor="let item of option.lists">
+        <label [for]="'list-' + item.value">
+          {{ item.label }}
+        </label>
+        <select [id]="'list-' + item.value" [(ngModel)]="values[option.value][item.value]" [ngModelOptions]="{standalone:true}">
+          <option *ngFor="let i of item.options" 
+          [value]="i.value">{{ i.label }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngFor="let dep of option.dependencies">
+      <div class="switches">
+        <div *ngFor="let item of connector.dataStore.wordOptionsLabel[dep].switches">
+          <div [class]="'switch' + (values[dep][item.value] ? ' selected' : '')">
+            <span class="anti">{{ item.anti }}</span>
+            <button type="button" (click)="values[dep][item.value] = !values[dep][item.value]"></button>
+            <span class="label">{{ item.label }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="lists">
+        <div class="select" *ngFor="let item of connector.dataStore.wordOptionsLabel[dep].lists">
+          <label [for]="'list-' + dep + '-' + item.value">
+            {{ item.label }}
+          </label>
+          <select [id]="'list-' + dep + '-' + item.value" [(ngModel)]="values[dep][item.value]" [ngModelOptions]="{standalone:true}">
+            <option *ngFor="let i of item.options" 
+            [value]="i.value">{{ i.label }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 3px;" *ngIf="text.length == 0"></div>
+    <button type="submit" *ngIf="text.length > 0">
+      <span *ngIf="!isLoading">افزودن</span>
+      <svg *ngIf="isLoading" version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+        <path fill="#fff" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50" transform="rotate(197.546 50 50)">
+          <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
+        </path>
+      </svg>
+    </button>
+
+  </form>
+</div>

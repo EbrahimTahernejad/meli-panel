@@ -1,0 +1,11 @@
+<div class="container">
+
+  <a class="button-main" routerLink="/home/add">افزودن لغت</a>
+  <div class="new">
+    <div class="title">لغات جدید</div>
+    <div class="word" *ngFor="let word of connector.dataStore.latestWords">
+      {{ word.text }}
+    </div>
+  </div>
+
+</div>
