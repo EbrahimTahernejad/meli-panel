@@ -12,7 +12,7 @@ import { DataStore } from './data-store';
 })
 export class ConnectorService {
 
-  private baseUrl: string = 'http://172.20.10.5:5000/api';
+  private baseUrl: string = 'http://194.5.177.224/api';
   private token: string = '';
   private user: APIUser;
 
