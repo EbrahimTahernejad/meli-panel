@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Word } from './models';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { APIResponse, APISearch, APIUser, APILogin, APIOptions, APISentences } from './response';
+import { APIResponse, APISearch, APIUser, APILogin, APIOptions, APISentences, APIQuestion } from './response';
 import { APIError } from './error';
 import { CookieService } from 'ngx-cookie-service';
 import { DataStore } from './data-store';
@@ -23,7 +23,7 @@ export class ConnectorService {
     this.loginState = new BehaviorSubject<number>(1);
   }
 
-  private async _checkToken(token: string): Promise<boolean> {
+  private async _checkToken(): Promise<boolean> {
     return new Promise< boolean >((resolve, reject) => {
       this.request< APIUser >('POST', '/check').then(user => {
         this.user = user;
@@ -36,14 +36,16 @@ export class ConnectorService {
 
   async checkToken(){
     if(this.cookie.check('MELI_TOKEN')){
-      let token: string = this.cookie.get('MELI_TOKEN');
-      if(await this._checkToken(token)) {
+      let token: string = this.cookie.getAll()['MELI_TOKEN'];
+      this.token = token;
+      if(await this._checkToken()) {
         this.token = token;
         this.loginState.next(2);
       } else {
         this.loginState.next(0);
       }
     } else {
+      console.log("no token");
       this.loginState.next(0);
     }
   }
@@ -133,6 +135,10 @@ export class ConnectorService {
       this.loginState.next(2);
       return result;
     })
+  }
+
+  async getSentence(): Promise<APIQuestion> {
+    return this.request< APIQuestion >('GET', '/sentence')
   }
 
 }

@@ -14,6 +14,7 @@ import { SearchComponent } from './components/search/search.component';
 import { AddComponent } from './components/add/add.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { SentenceComponent } from './components/sentence/sentence.component';
+import { QuestionComponent } from './components/question/question.component';
 
 import { ConnectorService } from './services/connector.service';
 import { CookieService } from 'ngx-cookie-service';
@@ -24,7 +25,8 @@ const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'search', component: SearchComponent },
     { path: 'add', component: AddComponent },
-    { path: 'sentence', component: SentenceComponent }
+    { path: 'sentence', component: SentenceComponent },
+    { path: 'question', component: QuestionComponent }
   ] },
   { path: '', component: LoadingComponent }
 ];
@@ -39,7 +41,8 @@ const routes: Routes = [
     SearchComponent,
     AddComponent,
     LoadingComponent,
-    SentenceComponent
+    SentenceComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

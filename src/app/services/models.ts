@@ -46,3 +46,8 @@ export class Verb extends Word {
     tense: number
     mood: number
 }
+
+export class Question {
+    text: string = ""
+    answer: string = ""
+}
