@@ -9,10 +9,10 @@ import { APIOption } from 'src/app/services/response';
 })
 export class AddComponent implements OnInit {
 
-  type: string
-  option: APIOption
-  values: { [name: string]: any }
-  text: string = ""
+  type: string;
+  option: APIOption;
+  values: { [name: string]: any };
+  text: string = '';
 
   isLoading: boolean = false
 
@@ -22,7 +22,7 @@ export class AddComponent implements OnInit {
     this.setValues()
   }
 
-  async submit(){
+  async submit() {
     if(this.text.length == 0) return;
     console.log(this.values);
     this.isLoading = true;

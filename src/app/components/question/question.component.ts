@@ -24,10 +24,14 @@ export class QuestionComponent implements OnInit {
   sentence: APIQuestion;
   constructor(private connector: ConnectorService) { }
 
+  async refreshSentence(){
+    this.sentence = await this.connector.getSentence();
+  }
+
   async ngOnInit() {
     this.isLoading = true;
-    this.sentence = await this.connector.getSentence()
-    this.isLoading = false
+    await this.refreshSentence();
+    this.isLoading = false;
     this.add();
   }
 
@@ -42,6 +46,14 @@ export class QuestionComponent implements OnInit {
         this.questions.splice(i, 1);
         return;
       }
+  }
+
+  async send(){
+    this.isLoading = true;
+    await this.connector.addQuestions(this.sentence.sentence, <Question[]>this.questions);
+    this.questions = [];
+    await this.refreshSentence();
+    this.isLoading = false;
   }
 
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Word } from './models';
+import { Word, Question } from './models';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { APIResponse, APISearch, APIUser, APILogin, APIOptions, APISentences, APIQuestion } from './response';
 import { APIError } from './error';
@@ -138,7 +138,14 @@ export class ConnectorService {
   }
 
   async getSentence(): Promise<APIQuestion> {
-    return this.request< APIQuestion >('GET', '/sentence')
+    return this.request< APIQuestion >('GET', '/sentence');
+  }
+
+  async addQuestions(sentence: string, questions: Question[]): Promise<any> {
+    return this.request< any >('POST', '/question', {
+      sentence: sentence,
+      questions: questions
+    });
   }
 
 }
