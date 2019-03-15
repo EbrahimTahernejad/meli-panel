@@ -18,7 +18,7 @@ class QuestionIndexed extends Question {
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit, AfterViewInit {
+export class QuestionComponent implements OnInit {
 
   maxId = 0;
   isLoading: boolean = true;
@@ -50,11 +50,6 @@ export class QuestionComponent implements OnInit, AfterViewInit {
     this.add();
   }
 
-  ngAfterViewInit(){
-    const obj: string = 'از انگلیسی استفاده ننمایید';
-    this.ngxSmartModalService.setModalData(obj, 'myModal');
-  }
-
   add() {
     const q = new QuestionIndexed(++this.maxId);
     this.questions.push(q);
@@ -76,6 +71,7 @@ export class QuestionComponent implements OnInit, AfterViewInit {
       for (const char of notAllowed) {
         if (question.text.includes(char) || question.answer.includes(char)) {
           this.ngxSmartModalService.getModal('myModal').open();
+          this.isLoading = false;
           return;
         }
       }
