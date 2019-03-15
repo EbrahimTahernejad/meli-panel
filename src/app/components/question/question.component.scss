@@ -5,18 +5,94 @@
         width: 60px;
     }
 
+    .data {
+        width: 80%;
+        margin: 19px auto;
+        padding: 10px;
+        background: #f2f2f2;
+        text-align: left;
+        border-radius: 7px;
+        max-width: 700px;
+        position: relative;
+
+        .sentence {
+            font-size: 15px;
+            text-align: right;
+            position: relative;
+            z-index: 1;
+            direction: rtl;
+        }
+
+        .reload {
+            cursor: pointer;
+            background: #f2f2f2;
+            color: #fff;
+            font-size: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 40px;
+            line-height: 46px;
+            text-align: center;
+            border: none;
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            
+            svg {
+                width: 20px;
+                height: 20px;
+                margin-top: 13px;
+            }
+    
+        }
+
+    }
+
     .questions {
         text-align: center;
 
         .question {
             padding: 10px 0;
-            width: 300px;
             margin: 0 auto;
+            position: relative;
+            width: 500px;
+
+            input {
+                font-size: 13px;
+                display: block;
+                margin: 4px auto;
+                width: 100%;
+                text-align: right;
+                direction: rtl;
+                padding: 7px 10px;
+                box-sizing: border-box;
+                border: 1px solid lightblue;
+                border-radius: 4px;
+            }
+
+            > button {
+                cursor: pointer;
+                position: absolute;
+                right: -29px;
+                top: 19px;
+                background: red;
+                color: #fff;
+                border: none;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                box-sizing: border-box;
+                text-align: center;
+                padding-top: 4.5px;
+                padding-left: 8px;
+            }
+
         }
 
     }
 
     .add {
+        cursor: pointer;
         background: limegreen;
         color: #fff;
         font-size: 29px;
@@ -29,6 +105,7 @@
     }
 
     .send {
+        cursor: pointer;
         background: lightskyblue;
         color: #fff;
         font-size: 15px;

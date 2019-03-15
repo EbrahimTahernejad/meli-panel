@@ -18,7 +18,7 @@ export class ConnectorService {
 
   public dataStore: DataStore = new DataStore();
 
-  loginState: BehaviorSubject<number>
+  loginState: BehaviorSubject<number>;
   constructor(private http: HttpClient, private cookie: CookieService) { 
     this.loginState = new BehaviorSubject<number>(1);
   }
