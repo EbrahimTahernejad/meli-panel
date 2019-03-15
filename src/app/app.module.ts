@@ -18,6 +18,7 @@ import { QuestionComponent } from './components/question/question.component';
 
 import { ConnectorService } from './services/connector.service';
 import { CookieService } from 'ngx-cookie-service';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -49,7 +50,8 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSmartModalModule.forRoot()
   ],
   providers: [
     ConnectorService,

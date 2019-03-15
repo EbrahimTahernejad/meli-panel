@@ -29,4 +29,10 @@
   <button class="send" *ngIf="!isLoading" (click)="send()">
     ارسال
   </button>
+  <ngx-smart-modal #myModal identifier="myModal">
+    <div *ngIf="myModal.hasData()" class="modal">
+      <pre>{{ myModal.getData() }}</pre>
+    </div>
+    <button (click)="myModal.close()">بستن</button>
+  </ngx-smart-modal>
 </div>

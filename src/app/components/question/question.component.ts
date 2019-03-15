@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Question } from '../../services/models';
 import { ConnectorService } from 'src/app/services/connector.service';
 import { APIQuestion } from 'src/app/services/response';
 import { CookieService } from 'ngx-cookie-service';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 class QuestionIndexed extends Question {
   id: number = 0
@@ -17,13 +18,13 @@ class QuestionIndexed extends Question {
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent implements OnInit, AfterViewInit {
 
   maxId = 0;
   isLoading: boolean = true;
   questions: QuestionIndexed[] = [];
   sentence: APIQuestion;
-  constructor(private connector: ConnectorService, private cookie: CookieService) { }
+  constructor(private connector: ConnectorService, private cookie: CookieService, private ngxSmartModalService: NgxSmartModalService) { }
 
   async refreshSentence() {
     this.sentence = await this.connector.getSentence();
@@ -49,6 +50,11 @@ export class QuestionComponent implements OnInit {
     this.add();
   }
 
+  ngAfterViewInit(){
+    const obj: string = 'از انگلیسی استفاده ننمایید';
+    this.ngxSmartModalService.setModalData(obj, 'myModal');
+  }
+
   add() {
     const q = new QuestionIndexed(++this.maxId);
     this.questions.push(q);
@@ -65,10 +71,20 @@ export class QuestionComponent implements OnInit {
 
   async send() {
     this.isLoading = true;
+    const notAllowed: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+    for (const question of this.questions) {
+      for (const char of notAllowed) {
+        if (question.text.includes(char) || question.answer.includes(char)) {
+          this.ngxSmartModalService.getModal('myModal').open();
+          return;
+        }
+      }
+    }
     await this.connector.addQuestions(this.sentence.sentence, <Question[]>this.questions);
     this.questions = [];
     await this.refreshSentence();
     this.isLoading = false;
+    this.add();
   }
 
 }

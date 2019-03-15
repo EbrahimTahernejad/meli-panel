@@ -1,6 +1,11 @@
 .container {
     text-align: center;
 
+    .modal {
+        text-align: right;
+        direction: rtl;
+    }
+
     svg {
         width: 60px;
     }
