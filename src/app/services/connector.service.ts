@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Word, Question } from './models';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { APIResponse, APISearch, APIUser, APILogin, APIOptions, APISentences, APIQuestion } from './response';
+import { APIResponse, APIGenerate, APISearch, APIUser, APILogin, APIOptions, APISentences, APIQuestion } from './response';
 import { APIError } from './error';
 import { CookieService } from 'ngx-cookie-service';
 import { DataStore } from './data-store';
@@ -12,7 +12,7 @@ import { DataStore } from './data-store';
 })
 export class ConnectorService {
 
-  private baseUrl: string = 'http://194.5.177.224/api';
+  private baseUrl: string = 'http://194.5.177.107/api';
   private token: string = '';
   private user: APIUser;
 
@@ -85,6 +85,10 @@ export class ConnectorService {
     });
   }
 
+  getBaseUrl(): string {
+    return this.baseUrl;
+  }
+
   async getOptions(): Promise<APIOptions> {
     return this.request< APIOptions >('GET', '/word/options').then(result => {
       for(let item of result){
@@ -123,6 +127,10 @@ export class ConnectorService {
     return this.request< APISentences >('GET', '/generate', {
       query: text
     })
+  }
+
+  async generateAll(): Promise<APIGenerate> {
+    return this.request< APIGenerate >('GET', '/question/generate')
   }
 
   async login(username: string, password: string): Promise<APILogin> {

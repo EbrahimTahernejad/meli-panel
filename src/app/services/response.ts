@@ -47,13 +47,19 @@ export class APISentence {
 
 export type APISentences = APISentence[]
 
+export class APIGenerate {
+    id: number
+    sentence: string
+    questions: models.Question[]
+}
+
 export class APIQuestion {
     page_url: string
     sentence: string
 }
 
 export class APIResponse<T> {
-    success: boolean;
-    result?: T;
-    error?: string;
+    success: boolean
+    result?: T
+    error?: string
 }

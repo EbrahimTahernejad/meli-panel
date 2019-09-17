@@ -19,6 +19,7 @@ import { QuestionComponent } from './components/question/question.component';
 import { ConnectorService } from './services/connector.service';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { GenerateComponent } from './components/generate/generate.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
     { path: 'search', component: SearchComponent },
     { path: 'add', component: AddComponent },
     { path: 'sentence', component: SentenceComponent },
-    { path: 'question', component: QuestionComponent }
+    { path: 'question', component: QuestionComponent },
+    { path: 'generate', component: GenerateComponent }
   ] },
   { path: '', component: LoadingComponent }
 ];
@@ -43,7 +45,8 @@ const routes: Routes = [
     AddComponent,
     LoadingComponent,
     SentenceComponent,
-    QuestionComponent
+    QuestionComponent,
+    GenerateComponent
   ],
   imports: [
     BrowserModule,
